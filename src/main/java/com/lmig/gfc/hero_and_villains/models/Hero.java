@@ -13,10 +13,11 @@ public class Hero extends LivingThing {
 	public void attack(LivingThing living) {
 		//make the hero attack the living thing
 		//take a random amount of damage (1-10) off the hero
-		setHealth(getHealth() - getRandomNumberInRange(1,10));
+		int heroDamage = getRandomNumberInRange(1,10);
+		int livingThingDamage = getRandomNumberInRange(1,10);
+			setHealth(getHealth() - heroDamage);
 		//take a random amount of damage (1-10) off the living thing
-		living.setHealth(living.getHealth() - getRandomNumberInRange(1,10));
-
+			living.setHealth(living.getHealth() - livingThingDamage);  
 		
 	}
 	

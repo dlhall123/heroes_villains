@@ -14,15 +14,42 @@
 	</ul>
 		
 
-	<h1>Meet our Monster</h1>
-		<ul>
-		<li>Name: {{ monster.getName }}</li>
-		<li>Health: {{ monster.getHealth }}</li>
-		<li>Classification: {{ monster.getClassification }}</li>
-		<li>Is alive?: {{ monster.isAlive }}</li>
-	</ul>
-	<form method="post" action="/attack">
-		<button>Attack!</button>
+	<h1>Meet our Monsters</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Classification</th>
+				<th>Health</th>
+				<th>is Alive?</th>
+			</tr>
+		</thead>
+		<tbody>
+				{{#monsters}}
+			<tr>
+				<td>{{this.getName}}</td>
+				<td>{{this.getClassification}}</td>
+				<td>{{this.getHealth}}</td>
+				<td>{{this.isAlive}}</td>
+			</tr>
+			{{/monsters}}
+		</tbody>
+	</table>
+	{{^isGameOver}}
+	<form method="post" action="/deathFight">
+		<button>Fight To the Death!</button>
 	</form>
+		{{/isGameOver}}
+	<form method="post" action="/">
+		<button>Reset</button>
+	</form>
+	{{#isGameOver}}
+	{{^hero.isAlive}}
+	<h1>The Monster, {{ lastMonster.getName }} the {{ lastMonster.getClassification }} Won with {{ lastMonster.getHealth }} health remaining!</h1>
+	{{/hero.isAlive}}
+	{{^lastMonster.isAlive}}
+	<h1>The Hero, {{ hero.getName}} the {{ hero.getSecretIdentity }} Won with {{ hero.getHealth }} health remaining!</h1>
+	{{/lastMonster.isAlive}}
+	{{/isGameOver}}
 </body>
 </html>

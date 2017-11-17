@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Villains and Hero</title>
+</head>
+<body>
+	<h1>Meet our Hero</h1>
+	<ul>
+		<li>Name: {{ hero.name }}</li>
+		<li>Health: {{ hero.getHealth }}</li>
+		<li>Secret Identity: {{ hero.getSecretIdentity }}</li>
+		<li>Is alive?: {{ hero.isAlive }}</li>
+	</ul>
+		
+
+	<h1>Meet our Monster</h1>
+		<ul>
+		<li>Name: {{ monster.getName }}</li>
+		<li>Health: {{ monster.getHealth }}</li>
+		<li>Classification: {{ monster.getClassification }}</li>
+		<li>Is alive?: {{ monster.isAlive }}</li>
+	</ul>
+	<form method="post" action="/attack">
+		<button>Attack!</button>
+	</form>
+</body>
+</html>

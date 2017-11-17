@@ -8,7 +8,7 @@ public class Monster extends LivingThing {
 		this.classification = classification;
 	}
 
-	public String getClassification() {
+	public String getClassification() { 
 		return classification;
 	}
 
